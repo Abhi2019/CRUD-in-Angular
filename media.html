@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+    <script src="Javascript/Testexam.js"></script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body {
+    /*background-color: lightgreen;*/
+}
+        @media only screen  and (orientation:landscape) {
+    body {
+        /*background-color: lightblue;*/
+    }
+}
+    </style>
+    <title></title>
+</head>
+<body>
+    
+    <div ng-app="moduleapp">
+        <div ng-controller="testc">
+            {{name}}
+            <button class="btn btn-primary" ng-click="onclick()">Select</button>
+            <div class="modal fade" id="adddiv" role="dialog">
+            <div class="modal-dialog" >
+                 <div class="modal-content">
+                <div class="modal-header">Alert
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                 Name :<input type="text" ng-model="Name" />
+                 Age: <input type="number" ng-model="Age" />
+                    <button class="btn btn-info" ng-click="onaddData()">{{buttonName}}</button>
+                </div>
+
+            </div>
+                </div>
+                </div>
+            <br />
+              <br />
+            <div class="row">
+                <div class="col-lg-6">
+                 <table class="table table-hover table-bordered">
+                     <tr>
+                         <th>Name</th>
+                         <th>Age</th>
+                     </tr>
+                     <tr ng-repeat="emp in Employee" ng-if="emp.Name!='' && Employee.length>1">
+                      <td>
+                          {{emp.Name}}
+                      </td>
+                         <td>
+                             {{emp.Age}}
+                         </td>
+                         <td>
+                              <button type="button" class="btn btn-default btn-sm" ng-click="onEdit($index)">
+          <span class="glyphicon glyphicon-edit"></span> Edit
+        </button>
+                             <button type="button" class="btn btn-default btn-sm" ng-click="onDelete($index)">
+          <span class="glyphicon glyphicon-remove"></span> Delete
+        </button>
+                         </td>
+                     </tr>
+                 </table>
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+</body>
+
+</html>
